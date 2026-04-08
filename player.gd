@@ -12,7 +12,7 @@ extends CharacterBody2D
 @export var gravity := 1100.0
 @export var max_fall_speed := 600.0
 @export var max_jumps := 1            # salto unico
-@export var jump_cut_multiplier := 0.4 # Salto variable (mantener vs presionar)
+@export var jump_cut_multiplier := 0.3 # Salto variable (mantener vs presionar)
 
 var jump_count := 0
 
@@ -32,17 +32,18 @@ func _physics_process(delta: float) -> void:
 
 func apply_gravity(delta: float) -> void:
 	if not is_on_floor():
-		velocity.y += gravity * delta
-		velocity.y = min(velocity.y, max_fall_speed)
+		# Caída más fuerte (clave)
+		if velocity.y > 0:
+			velocity.y += gravity * delta * 1.5
+		else:
+			velocity.y += gravity * delta
 	else:
-		jump_count = 0
+		velocity.y = 0
 
 func handle_jump() -> void:
 	# Salto inicial Quieto → salto normal (vertical) Corriendo → salto más largo
-	if Input.is_action_just_pressed("jump") and jump_count < max_jumps:
-		var speed_factor = abs(velocity.x) / run_speed
-		var extra_boost = lerp(0.0, -80.0, speed_factor) 
-		velocity.y = jump_velocity + extra_boost
+	if Input.is_action_just_pressed("jump") and is_on_floor(): 
+		velocity.y = jump_velocity
 		jump_count += 1
 
 	# Salto variable: si soltás el botón, la velocidad de subida se corta
@@ -56,16 +57,19 @@ func handle_horizontal_movement(delta: float) -> void:
 	if Input.is_action_pressed("run"):
 		target_speed = run_speed
 
+	# declarar la variable afuera si o si
+	var current_accel = acceleration
+
 	if direction != 0:
-		var current_accel = acceleration
 		
 		# Menos control en el aire
 		if not is_on_floor():
 			current_accel *= 0.6
 		
 		# Derrape (skid)
-		if sign(direction) != sign(velocity.x) and velocity.x != 0:
-			current_accel = turn_around_friction
+		if sign(direction) != sign(velocity.x) and abs(velocity.x) > 50:
+			velocity.x = move_toward(velocity.x, 0, turn_around_friction * delta)
+			return
 		
 		velocity.x = move_toward(velocity.x, direction * target_speed, current_accel * delta)
 	else:
