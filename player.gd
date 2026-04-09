@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var run_speed := 400.0        # Velocidad al apretar Shift
 @export var acceleration := 500.0     # Inercia al arrancar
 @export var friction := 500.0         # Fricción al soltar la tecla
-@export var turn_around_friction := 6000.0 # El "derrape" al cambiar de dirección
+@export var turn_around_friction := 6000.0 # El skid al cambiar de dirección y frenar
 
 
 @export_group("Mecánicas de Salto")
@@ -13,14 +13,12 @@ extends CharacterBody2D
 @export var gravity := 1100.0
 @export var max_fall_speed := 600.0
 @export var max_jumps := 2            # salto doble
-@export var jump_cut_multiplier := 0.3 # Salto variable (mantener vs presionar)
+@export var jump_cut_multiplier := 0.3 # Salto variable (mantener y presionar tecla)
 
 var jump_count := 0
-var has_tanuki := true
+var has_tanooki := true
 
 func _ready():
-	# Ubica al personaje y resetea velocidad al inicio
-	global_position = Vector2(100, 250)
 	velocity = Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
@@ -35,7 +33,7 @@ func _physics_process(delta: float) -> void:
 func apply_gravity(delta: float) -> void:
 	if not is_on_floor():
 		# planeo del tanuki
-		if has_tanuki and Input.is_action_pressed("jump") and velocity.y > 0:
+		if has_tanooki and Input.is_action_pressed("jump") and velocity.y > 0:
 			velocity.y += gravity * delta * 0.3  # caída lenta
 
 		else:

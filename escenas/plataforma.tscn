@@ -1,19 +1,22 @@
 [gd_scene format=3 uid="uid://duory78ju7dgh"]
 
-[ext_resource type="Texture2D" uid="uid://b1m6qiiwss6d4" path="res://icon.svg" id="1_bon5w"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1v4vm"]
-size = Vector2(1138.2168, 99.5)
+size = Vector2(1138.2172, 99.75)
 
 [node name="StaticBody2D" type="StaticBody2D" unique_id=791740993]
 position = Vector2(1, 2)
 scale = Vector2(1.0103524, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=453118317]
-position = Vector2(568.1187, 304.75)
+position = Vector2(568.11884, 603.125)
 shape = SubResource("RectangleShape2D_1v4vm")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=1255200517]
-position = Vector2(568.11865, 308.00003)
-scale = Vector2(8.876854, 0.8535158)
-texture = ExtResource("1_bon5w")
+position = Vector2(569.1084, 597)
+scale = Vector2(70.891106, 5.749999)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1566122936]
+offset_top = 554.0
+offset_right = 1136.2373
+offset_bottom = 651.0
+color = Color(8.01377e-06, 0.44680756, 0.28766954, 1)

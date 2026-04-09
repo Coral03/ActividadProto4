@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://6wi7x8tdpy4e"]
+
+[ext_resource type="PackedScene" uid="uid://cnt57jvkte0an" path="res://escenas/player.tscn" id="1_0kxa1"]
+[ext_resource type="PackedScene" uid="uid://duory78ju7dgh" path="res://escenas/plataforma.tscn" id="2_jumxm"]
+[ext_resource type="PackedScene" uid="uid://bc25hvw40w1ka" path="res://ladrillos.tscn" id="3_jumxm"]
+
+[node name="Node2D" type="Node2D" unique_id=1778875561]
+
+[node name="Player" parent="." unique_id=866313346 instance=ExtResource("1_0kxa1")]
+position = Vector2(-278, 419)
+
+[node name="Plataformas" parent="." unique_id=791740993 instance=ExtResource("2_jumxm")]
+position = Vector2(4, -7)
+
+[node name="Ladrillo" parent="Plataformas" unique_id=1814487879 instance=ExtResource("3_jumxm")]
+position = Vector2(165.28886, 311)
+
+[node name="Ladrillo2" parent="Plataformas" unique_id=1491927918 instance=ExtResource("3_jumxm")]
+position = Vector2(344.43427, 205)
+
+[node name="Ladrillo3" parent="Plataformas" unique_id=1878584385 instance=ExtResource("3_jumxm")]
+position = Vector2(652.2477, 252)
+
+[node name="Ladrillo4" parent="Plataformas" unique_id=1221759293 instance=ExtResource("3_jumxm")]
+position = Vector2(851.1882, 108)

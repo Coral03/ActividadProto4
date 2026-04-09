@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wibq6a4wxycn"
-path="res://.godot/imported/Mario.png-e615bc09e010a861769d6b66f66cc383.ctex"
+uid="uid://bockfwc76iec7"
+path="res://.godot/imported/bazzabogan.png-afa833b4cf78120876dc37b435ee5837.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/Mario.png"
-dest_files=["res://.godot/imported/Mario.png-e615bc09e010a861769d6b66f66cc383.ctex"]
+source_file="res://bazzabogan.png"
+dest_files=["res://.godot/imported/bazzabogan.png-afa833b4cf78120876dc37b435ee5837.ctex"]
 
 [params]
 
