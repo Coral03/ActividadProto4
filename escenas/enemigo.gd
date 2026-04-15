@@ -17,7 +17,7 @@ var player = null
 # variables de mov
 @export var speed := 100.0           # Velocidad general del enemigo
 @export var detection_range := 200.0 # Distancia para empezar a perseguir
-@export var attack_range := 40.0     # Distancia para atacar
+@export var attack_range := 100.0     # Distancia para atacar
 
 # Variables de patrulla
 @export var patrol_distance := 200.0 # Distancia máxima de patrulla

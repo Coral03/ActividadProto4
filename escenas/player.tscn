@@ -1,24 +1,7 @@
 [gd_scene format=3 uid="uid://cnt57jvkte0an"]
 
-[ext_resource type="Script" uid="uid://b42mlebvogqy0" path="res://player.gd" id="1_onrkg"]
-[ext_resource type="Texture2D" uid="uid://b1m6qiiwss6d4" path="res://icon.svg" id="2_kkt6c"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
-size = Vector2(80, 73.5)
+[ext_resource type="PackedScene" uid="uid://c2ldoqdjymcp3" path="res://escenas/jugadorlimpio.tscn" id="1_esbpa"]
 
 [node name="Node2D" type="Node2D" unique_id=866313346]
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=1297085205 groups=["player"]]
-position = Vector2(312, 19)
-scale = Vector2(0.97051513, 0.8886206)
-script = ExtResource("1_onrkg")
-acceleration = 1000.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=2028948615]
-position = Vector2(87, 71)
-shape = SubResource("RectangleShape2D_onrkg")
-
-[node name="Sprite2D" type="Sprite2D" parent="Player/CollisionShape2D" unique_id=1204524623]
-position = Vector2(-0.9999962, -0.593752)
-scale = Vector2(0.6276307, 0.5532226)
-texture = ExtResource("2_kkt6c")
+[node name="Player" parent="." unique_id=1800270601 instance=ExtResource("1_esbpa")]
