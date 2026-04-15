@@ -93,3 +93,6 @@ func handle_horizontal_movement(delta: float) -> void:
 	else:
 		# Desaceleración
 		velocity.x = move_toward(velocity.x, 0, friction * delta)
+		
+func take_damage():
+	print("Aia, me pegaron :(")

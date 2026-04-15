@@ -3,23 +3,52 @@
 [ext_resource type="PackedScene" uid="uid://cnt57jvkte0an" path="res://escenas/player.tscn" id="1_0kxa1"]
 [ext_resource type="PackedScene" uid="uid://duory78ju7dgh" path="res://escenas/plataforma.tscn" id="2_jumxm"]
 [ext_resource type="PackedScene" uid="uid://bc25hvw40w1ka" path="res://ladrillos.tscn" id="3_jumxm"]
+[ext_resource type="PackedScene" uid="uid://cl5vrve8cmvk7" path="res://escenas/enemigo.tscn" id="4_26pgj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_26pgj"]
+size = Vector2(36.688267, 645.74976)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dkga6"]
+size = Vector2(1218, 22)
 
 [node name="Node2D" type="Node2D" unique_id=1778875561]
 
 [node name="Player" parent="." unique_id=866313346 instance=ExtResource("1_0kxa1")]
-position = Vector2(-278, 419)
+position = Vector2(-294, 431)
 
 [node name="Plataformas" parent="." unique_id=791740993 instance=ExtResource("2_jumxm")]
 position = Vector2(4, -7)
 
 [node name="Ladrillo" parent="Plataformas" unique_id=1814487879 instance=ExtResource("3_jumxm")]
-position = Vector2(258.3257, 375)
+position = Vector2(262.28473, 446)
+
+[node name="Ladrillo5" parent="Plataformas" unique_id=995001013 instance=ExtResource("3_jumxm")]
+position = Vector2(262.28473, 446)
 
 [node name="Ladrillo2" parent="Plataformas" unique_id=1491927918 instance=ExtResource("3_jumxm")]
-position = Vector2(478.05103, 253)
+position = Vector2(466.17398, 303)
 
 [node name="Ladrillo3" parent="Plataformas" unique_id=1878584385 instance=ExtResource("3_jumxm")]
-position = Vector2(759.1411, 323)
+position = Vector2(699.75586, 355)
 
 [node name="Ladrillo4" parent="Plataformas" unique_id=1221759293 instance=ExtResource("3_jumxm")]
-position = Vector2(950.1636, 121)
+position = Vector2(923.44025, 229)
+
+[node name="Enemigo" parent="." unique_id=1515977938 instance=ExtResource("4_26pgj")]
+position = Vector2(425, 482)
+
+[node name="Pared_izquierda" type="StaticBody2D" parent="." unique_id=2033078088]
+
+[node name="Collision_derecha" type="CollisionShape2D" parent="Pared_izquierda" unique_id=1273163879]
+position = Vector2(1171.3441, 321.87488)
+shape = SubResource("RectangleShape2D_26pgj")
+
+[node name="Collision_izquierda" type="CollisionShape2D" parent="Pared_izquierda" unique_id=353012224]
+position = Vector2(-17, 322)
+rotation = 0.0017844957
+scale = Vector2(0.9999997, 0.9999997)
+shape = SubResource("RectangleShape2D_26pgj")
+
+[node name="Collision_arriba" type="CollisionShape2D" parent="Pared_izquierda" unique_id=384619775]
+position = Vector2(579, -12)
+shape = SubResource("RectangleShape2D_dkga6")

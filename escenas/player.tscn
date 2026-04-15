@@ -8,7 +8,7 @@ size = Vector2(80, 73.5)
 
 [node name="Node2D" type="Node2D" unique_id=866313346]
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=1297085205]
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1297085205 groups=["player"]]
 position = Vector2(312, 19)
 scale = Vector2(0.97051513, 0.8886206)
 script = ExtResource("1_onrkg")
